@@ -1,0 +1,23 @@
+Directory
+
+test: making draft code, test...
+
+kbfiCode: hold code from KBFI.
+
+func: my private function used every where.
+
+miniAOD: miniAOD files directly transfer from DAS.
+
+python, plugins: making ntuple there.
+
+2016-sync: from git, to upload the sync flattuple on git.
+
+syncExercice: make txt file, and plotting variables for the sync
+
+crabTemplate, crabSubmit: create and submit jobs.
+
+ntuple: ntuple output from the crab jobs + from other group for sync.
+
+makeHist: plot the variables before the TMVA
+
+tmva: running TMVA analysis (trainning, application, fom).
