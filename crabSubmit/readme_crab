@@ -1,0 +1,23 @@
+source /cvmfs/cms.cern.ch/crab3/crab.csh
+voms-proxy-init --voms cms --valid 168:00
+
+#create crab cfg
+./makeCrab datasets
+
+#crab configuration and tutorial:
+https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookCRAB3Tutorial
+
+crab submit -c file.py
+crab status -d crabDir
+crab status -d crabDir --long
+crab getlog -d crabDir --short --jobids 1
+crab resubmit -d crabDir 1, 2, 3
+crab report -d crabDir
+crab kill -d crabDir_*
+
+output directory:
+/gstore/t3cms/store/user/calpas
+
+
+

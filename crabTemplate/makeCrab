@@ -1,0 +1,20 @@
+#!/bin/bash
+F=/tmp/prlist
+grep -v ^$ $1 > $F
+N=`wc $F|awk '{print $1}'`
+for i in `seq $N`; do 
+  DSET=`head -$i $F|tail -1|awk '{print $1}'`
+  SN=`head -$i $F|tail -1|awk '{print $2}'`
+  TYPE=`head -$i $F|tail -1|awk '{print $3}'`
+
+#mc
+  if [ $TYPE = "mc" ]; then
+    #PN is not used it no publication!!
+    PN=`sed "s+/+_+g;s+_80X_mcRun2_asymptotic_2016_v3-v1_MINIAODSIM+ +g;s+_+ +1" $1|head -$i| tail -1|awk '{print $1}'` # ok but can be too long  
+    sed "s+DSET+$DSET+g;s+SN+$SN+g;s+PN+$PN+g" template.py > c_$SN.py
+#data
+  else 
+     PN=`sed "s+/+_+g;s+_AOD+ +g;s+_+ +1" $1|head -$i| tail -1|awk '{print $1}'`
+  fi
+
+done

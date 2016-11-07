@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ "x$1" != "x" ]; then fl=$1; else fl=`ls -d ../crabTemplate/c_*.py | grep -v lumi`; fi  
+
+for i in $fl; do
+    echo -e "\nsubmitting jobs for $i ......."
+    crab submit  -c $i 
+done
