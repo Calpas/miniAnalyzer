@@ -1,0 +1,13 @@
+tmva tutorial:
+https://root.cern.ch/doc/master/group__tutorial__tmva.html
+l ${ROOTSYS}/tutorials/tmva
+
+run with:
+./do.exe BDTD
+m ; ./do.exe BDTD Cuts
+#ro TMVAClassification.C\(\"BDTD\"\)
+
+to open the Gui after running:
+TMVA::gConfig().fVariablePlotting.fUsePaperStyle=0
+TMVA::TMVAGui("TMVA.root")
+
